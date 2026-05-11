@@ -1,9 +1,12 @@
 using System.Text.RegularExpressions;
 using System.IO.Hashing;
 using System.Text;
+using System.Linq;
+using System.IO;
+using System;
 
-string protoFile = args.Length > 0 ? args[0] : "Message.proto";
-string outputDir = args.Length > 1 ? args[1] : "MsgMeta";
+string protoFile = args.Length > 0 ? args[0] : "../ZZZServer/Proto/Message.proto";
+string outputDir = args.Length > 1 ? args[1] : "../ZZZServer/MsgMeta";
 
 var proto = File.ReadAllText(protoFile);
 var matches = Regex.Matches(proto, @"^message\s+(\w+)", RegexOptions.Multiline);
